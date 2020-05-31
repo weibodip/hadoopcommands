@@ -23,14 +23,18 @@ logging.basicConfig(
 
 if __name__ == '__main__':
     args = sys.argv
+    args_len = len(args)
 
     path = None
     options = None
 
-    if len(args) > 1:
+    if args_len > 1:
         path = args[1]
 
-    if len(args) > 2:
+    if args_len > 2:
         options = args[2:]
 
-    dfs.ls(path, options)
+    infos = dfs.ls(path, options)
+
+    for info in infos:
+        print(info)
